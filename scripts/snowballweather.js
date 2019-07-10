@@ -10,6 +10,13 @@
 //console.log(weatherResult);
 // console.log(weatherResult.weather);
 
+//use local weather data so it's customized to the user's location
+//17/01/19 - get user geolocation get data from API based on their location
+geolocation = httpGet("https://ipapi.co/json/");
+console.log(geolocation);
+const currentLocation = JSON.parse(geolocation).city;
+console.log(currentLocation);
+
 //get data from API & extract weather data
 function httpGet(theUrl)
 {
@@ -18,7 +25,7 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-apiData = httpGet('https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=c9fdb9eb132c0e63ba646c3752930d38');
+apiData = httpGet('https://api.openweathermap.org/data/2.5/weather?q=' + currentLocation + '&appid=c9fdb9eb132c0e63ba646c3752930d38');
 console.log(apiData);
 
 const weatherThing = JSON.parse(apiData).weather;
@@ -49,9 +56,9 @@ let snowballsMood = 'happy ( ^ ^ )';
 if (now > sunriseTime && now < sunriseTime + 1800) {
     snowballsMood = 'woke ( 0 0 )';
     selectedImage = 'woke snowball.png';
-    const image = document.getElementById("snowballpicture");
-    image.src = "./Snowball pictures/" + selectedImage;
-    console.log(selectedImage);
+    // const image = document.getElementById("snowballpicture");
+    // image.src = "./Snowball pictures/" + selectedImage;
+    // console.log(selectedImage);
 
     console.log('Snowball is ' + snowballsMood);
 }
@@ -64,32 +71,20 @@ else if (now > sunriseTime && now < sunsetTime) {
     if (roundedWCC == 2 || roundedWCC == 3 || roundedWCC == 5 || roundedWCC == 7) {
     // 200 and 300 weather condition codes are thunderstorm and drizzle (respectively)
     // 500 WCCs are rain and 700 WCCs are i n t e r e s t i n g atmosphere conditions
-    snowballsMood = 'dazed ( @ @ )';
-    selectedImage = 'dazed snowball.png';
-    const image = document.getElementById("snowballpicture");
-    image.src = "./Snowball pictures/" + selectedImage;
-    console.log(selectedImage);
+        snowballsMood = 'dazed ( @ @ )';
+        selectedImage = 'dazed snowball.png';
     }
     else if (roundedWCC == 6) {
         snowballsMood = 'winking ( 0 ^ )';
         selectedImage = 'winking snowball.png';
-        const image = document.getElementById("snowballpicture");
-        image.src = "./Snowball pictures/" + selectedImage;
-        console.log(selectedImage);
     }
     else if (weatherConditionCode == 800 || weatherConditionCode == 801) {
         snowballsMood = 'happy ( ^ ^ )';
         selectedImage = 'happy snowball.png';
-        const image = document.getElementById("snowballpicture");
-        image.src = "./Snowball pictures/" + selectedImage;
-        console.log(selectedImage);
     }
     else if (weatherConditionCode == 802 || weatherConditionCode == 803 || weatherConditionCode == 804) {
         snowballsMood = 'shy ( > < )';
         selectedImage = 'shy snowball.png';
-        const image = document.getElementById("snowballpicture");
-        image.src = "./Snowball pictures/" + selectedImage;
-        console.log(selectedImage);
     }
     
     console.log('Snowball is ' + snowballsMood);
@@ -99,13 +94,16 @@ else if (now > sunriseTime && now < sunsetTime) {
 else {
     snowballsMood = 'charging ( [||||] )';
     selectedImage = 'charging snowball.jpg';
-    const image = document.getElementById("snowballpicture");
-    image.src = "./Snowball pictures/" + selectedImage;
-    console.log(selectedImage);
+    // const image = document.getElementById("snowballpicture");
+    // image.src = "./Snowball pictures/" + selectedImage;
+    // console.log(selectedImage);
 
     console.log('Snowball is ' + snowballsMood);
 }
 
+const image = document.getElementById("snowballpicture");
+    image.src = "./Snowball pictures/" + selectedImage;
+    console.log(selectedImage);
 
 //change text in HTML document to tell user what mood snowball is in
 const snowballmood = document.getElementById("demo");
@@ -145,3 +143,22 @@ else {
     console.log(mainWeather);
     snowballWeather.innerHTML = ('Current Weather: ' + mainWeather)
 }
+
+
+//new years snowball thing
+if (now > 1546300800 && now < 1546320000) {
+    snowballsMood = 'happy ( ^ ^ )';
+        selectedImage = 'happy snowball.png';
+        const image = document.getElementById("snowballpicture");
+        image.src = "./Snowball pictures/" + selectedImage;
+        console.log(selectedImage);
+    const snowballNewYear = document.getElementById("demo");
+    snowballNewYear.innerHTML = ("SNOWBALL IS HAPPY BECAUSE IT'S FINALLY 2019");
+    const snowballNY2 = document.getElementById("weather");
+    snowballNY2.innerHTML = ("Snowball wishes you a happy new year :)");
+    const nyimg = document.getElementById("nypicture");
+    console.log(nyimg);
+    nyimg.src = 'https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2017/chemistexpla.jpg'
+}
+
+//shorten the big wcc if statements by changing the image after the loop
