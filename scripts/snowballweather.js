@@ -93,7 +93,7 @@ else if (now > sunriseTime && now < sunsetTime) {
 //as long as "now" is not in between sunrise and sunset time, snowball is charging
 else {
     snowballsMood = 'charging ( [||||] )';
-    selectedImage = 'charging snowball.jpg';
+    selectedImage = 'charging snowball.png';
     // const image = document.getElementById("snowballpicture");
     // image.src = "./Snowball pictures/" + selectedImage;
     // console.log(selectedImage);
