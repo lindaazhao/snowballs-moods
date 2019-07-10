@@ -1,63 +1,93 @@
+<!DOCTYPE html>
+<html>
 
-<html>  
-  <head>
-    <title>Snowball's Moods</title>
-      <style>
-      .center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      }  
-      #styleattempt {
-        background: url("picture.png");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        height: 100%;
-      }
-      html, body {
-      margin: 0;
-      height: 100%;
-      overflow: hidden;
-      
-      }
-      .header {
-        text-align: center;
-        font-size:175%;
-      }
-      #banner {
-        padding: 2px;
-        background-color: rgba(135, 206, 250, 0.705);
-        background-repeat: no-repeat;
-        background-size: auto;
-        padding-left: 20px;
-        padding-right: 20px;
-        /* opacity: 0.8; */
-      }
-      #text {
-        padding-left: 35px;
-        padding-right: 35px;
-        padding-top: 10px;
-      }
-      </style>
-  </head>
-  <body>
-    <div id="styleattempt">
-      <div id = "banner">
-        <div class = "header">
-          <h1 id="intro">Welcome to Snowball's Moods!</h1>
-        </div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="bgimg">
+    <div class="banner">
+      <div class="header">
+        <h1 id="intro">Welcome to Snowball's Moods!</h1>
       </div>
-      <!-- <h1 style="text-align:center;" id="intro">Welcome to Snowball's Moods!</h1> -->
-      <div id="text">  
-        <h2 id="demo">Original Text.</h2>
-        <h2 id="weather">Weather is unavailable right now.</h2>
-        <img id="snowballpicture" width = 30% alt="Snowball Picture" class = "center"/>
-        <img id="nypicture" width = 50%/>
-      </div>
-<script src = "./scripts/snowballweather.js">
-</script>
+    </div>
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Your Location')" id="defaultOpen">Your Location</button>
+      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+      <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+      <button class="tablinks" onclick="openCity(event, 'New York')">New York</button>
+      <button class="tablinks" onclick="openCity(event, 'Sydney')">Sydney</button>
+      <button class="tablinks" onclick="openCity(event, 'Moscow')">Moscow</button>
+      <button class="tablinks" onclick="openCity(event, 'Rio de Janeiro')">Rio de Janeiro</button>
     </div>
 
+    <div id="Your Location" class="tabcontent">
+      <h2 id="demo0">Your Location</h2>
+      <h2 id="weather0">Weather is unavailable right now.</h2>
+      <img id="snowballpicture0" width=25% alt="Snowball Picture" class="center" />
+    </div>
 
-  </body>
+    <div id="Tokyo" class="tabcontent">
+      <h2 id="demo1">Tokyo</h2>
+      <h2 id="weather1">Weather is unavailable right now.</h2>
+      <img id="snowballpicture1" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h2 id="demo2">Paris</h2>
+      <h2 id="weather2">Weather is unavailable right now.</h2>
+      <img id="snowballpicture2" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <div id="New York" class="tabcontent">
+      <h2 id="demo3">New York</h2>
+      <h2 id="weather3">Weather is unavailable right now.</h2>
+      <img id="snowballpicture3" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <div id="Sydney" class="tabcontent">
+      <h2 id="demo4">Sydney</h2>
+      <h2 id="weather4">Weather is unavailable right now.</h2>
+      <img id="snowballpicture4" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <div id="Moscow" class="tabcontent">
+      <h2 id="demo5">Moscow</h2>
+      <h2 id="weather5">Weather is unavailable right now.</h2>
+      <img id="snowballpicture5" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <div id="Rio de Janeiro" class="tabcontent">
+      <h2 id="demo6">Rio de Janeiro</h2>
+      <h2 id="weather6">Weather is unavailable right now.</h2>
+      <img id="snowballpicture6" width=25% alt="Snowball Picture" class="center" />
+    </div>
+
+    <script src="./index.js">
+    </script>
+
+    <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      document.getElementById("defaultOpen").click();
+    </script>
+  </div>
+</body>
+
 </html>
