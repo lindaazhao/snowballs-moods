@@ -141,7 +141,7 @@ else {
     const snowballWeather = document.getElementById("weather");
     let mainWeather = (weatherThing[0].description);
     console.log(mainWeather);
-    snowballWeather.innerHTML = ('Current Weather: ' + mainWeather)
+    snowballWeather.innerHTML = ('Current weather in ' + currentLocation + ': ' + mainWeather)
 }
 
 

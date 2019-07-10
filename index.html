@@ -20,29 +20,43 @@
       overflow: hidden;
       
       }
-      div {
-        padding-left: 20px;
-        padding-top: 5px;
-      }
-      .header{
+      .header {
         text-align: center;
         font-size:175%;
+      }
+      #banner {
+        padding: 2px;
+        background-color: rgba(135, 206, 250, 0.705);
+        background-repeat: no-repeat;
+        background-size: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* opacity: 0.8; */
+      }
+      #text {
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-top: 10px;
       }
       </style>
   </head>
   <body>
     <div id="styleattempt">
-      <div class = "header">
-        <h1 id="intro">Welcome to Snowball's Moods!</h1>
+      <div id = "banner">
+        <div class = "header">
+          <h1 id="intro">Welcome to Snowball's Moods!</h1>
+        </div>
       </div>
       <!-- <h1 style="text-align:center;" id="intro">Welcome to Snowball's Moods!</h1> -->
-    <h2 id="demo">Original Text.</h2>
-    <h2 id="weather">Weather is unavailable right now.</h2>
-    <img id="snowballpicture" width = 30% alt="Snowball Picture" class = "center"/>
-    <img id="nypicture" width = 50%/>
+      <div id="text">  
+        <h2 id="demo">Original Text.</h2>
+        <h2 id="weather">Weather is unavailable right now.</h2>
+        <img id="snowballpicture" width = 30% alt="Snowball Picture" class = "center"/>
+        <img id="nypicture" width = 50%/>
+      </div>
 <script src = "./scripts/snowballweather.js">
 </script>
-</div>
+    </div>
 
 
   </body>
